@@ -1,4 +1,4 @@
-<div class="ui card" (click)="onSelect(issue)">
+<div class="ui card" (click)="onSelect(issue)" [routerLink]="['/issue/view', issue.id]">
     <div class="content title"> {{issue.title}} </div>
     <div class="extra content">
       {{issue.description}}
