@@ -1,29 +1,43 @@
-const express = require('express')
-const app = express()
-const ipfsAPI = require('ipfs-api')
-const fs = require('fs')
-const ipfs = ipfsAPI('localhost', '5001', {protocol: 'http'}) // leaving out the arguments will default to these values
+const express = require('express');
+const app = express();
+const ipfsAPI = require('ipfs-api');
+const fs = require('fs');
+const ipfs = ipfsAPI('localhost', '5001', {protocol: 'http'});
+const uuid = require('uuid/v4');
+const bodyParser = require('body-parser');
 
-app.get('/', (req, res) => res.send('Hello World!'))
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
-app.get('/upload-image', (req, res) => {
+app.get('/', (req, res) => res.send('This is the node server, dog.'));
+
+app.post('/add-issue', (req, res) => {
+	let text = req.body.title + "\n" + req.body.description;
+
+	let filePath = __dirname + '/tmp/file-' + uuid() + ".txt";
+
+	fs.writeFileSync(filePath, text, 'utf-8', err => console.log(err));
+
+	console.log('The file was saved here: ' + filePath);
+
+	console.log(filePath);
 
 	const files = [
 	{
-		path: 'cat.jpg',
-		content: fs.readFileSync('cat.jpg')
-	}
-	]
+		content: fs.readFileSync(filePath)
+	}];
 
-	ipfs.add(files, function (err, res) {
-		if (err || !res) return console.log(err)
+	let hash;
+	ipfs.add(files, function (err, ipfsResponse) {
+		if (err || !ipfsResponse) return console.log(err);
+		console.log('added file', ipfsResponse[0].hash, ipfsResponse[0].path);
+		hash = ipfsResponse[0].hash;
 
-			for (let i = 0; i < res.length; i++) {
-				console.log('added file', res[i].hash, res[i].path)
-			}
-		})
-})
+		console.log(ipfsResponse);
 
-app.listen(3000, () => console.log('Example app listening on port 3000!'))
+		console.log('sending back the hash: ' + hash);
+		res.send(hash);
+	});
+});
 
-// connect to ipfs daemon API server
+app.listen(3000, () => console.log('Example app listening on port 3000!'));
