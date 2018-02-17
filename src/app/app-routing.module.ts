@@ -2,9 +2,11 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { NewIssueComponent } from './new-issue/new-issue.component';
+import { IssueDetailViewComponent } from './issue-detail-view/issue-detail-view.component'
 
 const routes: Routes = [
-  {path: 'issue/new', component: NewIssueComponent}
+  {path: 'issue/new', component: NewIssueComponent},
+  {path: 'issue/view', component: IssueDetailViewComponent}
 ]
 
 @NgModule({
