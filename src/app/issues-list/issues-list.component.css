@@ -1,0 +1,8 @@
+.issues-list {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.card-wrapper {
+  margin: 20px;
+}

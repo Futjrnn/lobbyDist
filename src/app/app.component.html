@@ -1,17 +1,10 @@
 
 <div class="main">
-  <app-navbar></app-navbar>
-  <h1>
-    Welcome to lobbyDist!
-  </h1>
+  <app-navbar class="main-component"></app-navbar>
   <router-outlet>
 
   </router-outlet>
-  <!-- <app-issues-list
-    *ngIf="!selectedIssue"
-    class="issues-list"
-  ></app-issues-list> -->
-  <app-issue-detail-view
+  <app-issue-detail-view class="main-component"
     *ngIf="selectedIssue"
     [issue]="selectedIssue"
   ></app-issue-detail-view>
