@@ -34,5 +34,4 @@ export class IssueServiceService {
       // actual payout step of the contract. maybe requires some input to note verification consensus.
       return true;
     }
-
 }
