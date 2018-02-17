@@ -7,7 +7,7 @@ const fs = require('fs');
 
 module.exports.set = function(app) {
 
-	app.post('/issue/add', (req, res) => {
+	app.post('/issues/add', (req, res) => {
 		let text = req.body.title + "\n" + req.body.description;
 
 		let title = req.body.title.replace(/\s+/g, '-').toLowerCase();
@@ -32,4 +32,6 @@ module.exports.set = function(app) {
 			res.send(ipfsResponse[0].hash);
 		});
 	});
+
+	app.post('/issues')
 }
