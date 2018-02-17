@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
+import * as _ from 'lodash';
+import Web3 from 'web3';
 
 @Component({
   selector: 'app-root',
@@ -8,4 +10,14 @@ import { Component } from '@angular/core';
 
 export class AppComponent {
   title = 'lobbyDist';
+  web3: any;
+
+  @HostListener('window:load')
+  windowLoaded() {
+    this.initWeb3();
+  }
+
+  initWeb3 = () => {
+    window.web3 = _.isUndefined(window.web3) ? new Web3(new Web3.providers.HttpProvider('http://localhost:8545')) : new Web3(window.web3.currentProvider);
+  }
 }
