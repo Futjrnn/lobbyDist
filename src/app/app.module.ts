@@ -1,9 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgSemanticModule } from 'ng-semantic';
+import { FormsModule } from '@angular/forms'
+
+import { IssueServiceService } from './issue-service.service';
 
 import { AppComponent } from './app.component';
-import { IssueServiceService } from './issue-service.service';
 import { NavbarComponent } from './navbar/navbar.component';
 import { IssuesListComponent } from './issues-list/issues-list.component';
 import { IssueCardComponent } from './issue-card/issue-card.component';
@@ -22,7 +24,8 @@ import { IssueDetailViewComponent } from './issue-detail-view/issue-detail-view.
   ],
   imports: [
     BrowserModule,
-    NgSemanticModule
+    NgSemanticModule,
+    FormsModule
   ],
   providers: [IssueServiceService],
   bootstrap: [AppComponent]

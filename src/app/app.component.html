@@ -1,10 +1,13 @@
 
-<div style="text-align:center">
+<div class="main">
   <app-navbar></app-navbar>
   <h1>
     Welcome to lobbyDist!
   </h1>
-  <app-issues-list *ngIf="!selectedIssue"></app-issues-list>
+  <app-issues-list
+    *ngIf="!selectedIssue"
+    class="issues-list"
+  ></app-issues-list>
   <app-issue-detail-view
     *ngIf="selectedIssue"
     [issue]="selectedIssue"
