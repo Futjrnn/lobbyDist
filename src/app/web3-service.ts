@@ -18,4 +18,3 @@ export class Web3Service {
     return this.web3;
   }
 }
-
