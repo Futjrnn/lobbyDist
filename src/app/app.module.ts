@@ -7,6 +7,7 @@ import { IssueServiceService } from './issue-service.service';
 import { NavbarComponent } from './navbar/navbar.component';
 import { IssuesListComponent } from './issues-list/issues-list.component';
 import { IssueCardComponent } from './issue-card/issue-card.component';
+import { NewIssueComponent } from './new-issue/new-issue.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { IssueCardComponent } from './issue-card/issue-card.component';
     AppComponent,
     NavbarComponent,
     IssuesListComponent,
-    IssueCardComponent
+    IssueCardComponent,
+    NewIssueComponent
   ],
   imports: [
     BrowserModule
