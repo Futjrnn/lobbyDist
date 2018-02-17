@@ -4,5 +4,9 @@
   <h1>
     Welcome to lobbyDist!
   </h1>
-  <app-issues-list></app-issues-list>
+  <app-issues-list *ngIf="!selectedIssue"></app-issues-list>
+  <app-issue-detail-view
+    *ngIf="selectedIssue"
+    [issue]="selectedIssue"
+  ></app-issue-detail-view>
 </div>

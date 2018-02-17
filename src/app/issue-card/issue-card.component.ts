@@ -14,5 +14,4 @@ export class IssueCardComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }

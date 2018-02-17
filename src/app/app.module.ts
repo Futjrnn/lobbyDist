@@ -8,6 +8,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { IssuesListComponent } from './issues-list/issues-list.component';
 import { IssueCardComponent } from './issue-card/issue-card.component';
 import { NewIssueComponent } from './new-issue/new-issue.component';
+import { IssueDetailViewComponent } from './issue-detail-view/issue-detail-view.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { NewIssueComponent } from './new-issue/new-issue.component';
     NavbarComponent,
     IssuesListComponent,
     IssueCardComponent,
-    NewIssueComponent
+    NewIssueComponent,
+    IssueDetailViewComponent
   ],
   imports: [
     BrowserModule,

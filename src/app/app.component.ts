@@ -1,6 +1,7 @@
 import { Component, HostListener } from '@angular/core';
 import * as _ from 'lodash';
 import Web3 from 'web3';
+import { Issue } from './issue';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +12,7 @@ import Web3 from 'web3';
 export class AppComponent {
   title = 'lobbyDist';
   web3: any;
+  selectedIssue: Issue;
 
   @HostListener('window:load')
   windowLoaded() {
