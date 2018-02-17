@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { IssueServiceService } from '../issue-service.service';
+import { Issue } from '../issue';
 
 @Component({
   selector: 'app-issues-list',
@@ -6,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./issues-list.component.css']
 })
 export class IssuesListComponent implements OnInit {
+  issues: Issue[]
 
-  constructor() { }
+  constructor(public issueService: IssueServiceService) { }
 
   ngOnInit() {
+    this.getIssues();
   }
 
+  getIssues() {
+    this.issues = this.issueService.getIssues();
+  }
 }

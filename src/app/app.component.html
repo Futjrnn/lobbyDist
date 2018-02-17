@@ -1,11 +1,8 @@
-<!--The content below is only a placeholder and can be replaced.-->
+
 <div style="text-align:center">
+  <app-navbar></app-navbar>
   <h1>
     Welcome to lobbyDist!
   </h1>
-  <issues-list>
-    <div *ngFor="let issue of issues">
-      <issue-card [issue]="issue"></issue-card>
-    </div>
-  </issues-list>
+  <app-issues-list></app-issues-list>
 </div>
