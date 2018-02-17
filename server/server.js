@@ -14,29 +14,26 @@ app.get('/', (req, res) => res.send('This is the node server, dog.'));
 app.post('/add-issue', (req, res) => {
 	let text = req.body.title + "\n" + req.body.description;
 
-	let filePath = __dirname + '/tmp/file-' + uuid() + ".txt";
+	let title = req.body.title.replace(/\s+/g, '-').toLowerCase();
+	let filePath = __dirname + 
+		'/tmp/' + 
+		title + 
+		'-' + uuid() + 
+		".txt";
 
 	fs.writeFileSync(filePath, text, 'utf-8', err => console.log(err));
 
-	console.log('The file was saved here: ' + filePath);
+	const files = [{ content: fs.readFileSync(filePath) }];
 
-	console.log(filePath);
-
-	const files = [
-	{
-		content: fs.readFileSync(filePath)
-	}];
-
-	let hash;
 	ipfs.add(files, function (err, ipfsResponse) {
 		if (err || !ipfsResponse) return console.log(err);
-		console.log('added file', ipfsResponse[0].hash, ipfsResponse[0].path);
-		hash = ipfsResponse[0].hash;
 
-		console.log(ipfsResponse);
+		console.log('added file', filePath);
+		console.log('sending back the hash: ' + ipfsResponse[0].hash);
+		
+		fs.unlink(filePath);
 
-		console.log('sending back the hash: ' + hash);
-		res.send(hash);
+		res.send(ipfsResponse[0].hash);
 	});
 });
 
