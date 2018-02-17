@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IssueServiceService } from '../issue-service.service';
 import { Issue } from '../issue';
+import { SEMANTIC_COMPONENTS, SEMANTIC_DIRECTIVES } from "ng-semantic";
 
 @Component({
   selector: 'app-issues-list',

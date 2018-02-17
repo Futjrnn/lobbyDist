@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { NgSemanticModule } from 'ng-semantic';
 
 import { AppComponent } from './app.component';
 import { IssueServiceService } from './issue-service.service';
@@ -18,7 +19,8 @@ import { NewIssueComponent } from './new-issue/new-issue.component';
     NewIssueComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    NgSemanticModule
   ],
   providers: [IssueServiceService],
   bootstrap: [AppComponent]

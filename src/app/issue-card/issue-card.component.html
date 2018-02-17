@@ -1,9 +1,6 @@
 <div class="ui card" (click)="onSelect(issue)">
-    <div class="title"> {{issue.title}} </div>
-    <div class="meta">
-      <div class="subtitle"> Id: {{issue.id}} </div>
-    </div>
-    <div class="description">
+    <div class="content title"> {{issue.title}} </div>
+    <div class="extra content">
       {{issue.description}}
     </div>
 </div>

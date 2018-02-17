@@ -1,3 +1,5 @@
-<div *ngFor="let issue of issues">
-  <app-issue-card [issue]="issue"></app-issue-card>
-</div>
+<sm-cards>
+  <div *ngFor="let issue of issues">
+    <app-issue-card [issue]="issue"></app-issue-card>
+  </div>
+</sm-cards>
