@@ -43,5 +43,4 @@ testem.log
 Thumbs.db
 
 #Truffle Contracs
-environments/*/contracts/**
-
+builds/
