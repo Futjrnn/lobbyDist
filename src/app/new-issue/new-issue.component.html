@@ -1,3 +1,12 @@
-<p>
-  new-issue works!
-</p>
+<h2>Create new issue</h2>
+<div>
+  <form (ngSubmit)="createIssue()">
+    <label>Title:
+      <input [(ngModel)]="issue.title" placeholder="Add new title...">
+    </label>
+    <label>
+      <textarea [(ngModel)]="issue.description" placeholder="Describe your issue..."></textarea>
+    </label>
+    <input type="submit" value="Draft Issue" >
+  </form>
+</div>
