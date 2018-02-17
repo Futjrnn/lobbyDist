@@ -1,3 +1,9 @@
-<p>
-  issue-card works!
-</p>
+<div class="ui card" (click)="onSelect(issue)">
+    <div class="title"> {{issue.title}} </div>
+    <div class="meta">
+      <div class="subtitle"> Id: {{issue.id}} </div>
+    </div>
+    <div class="description">
+      {{issue.description}}
+    </div>
+</div>
