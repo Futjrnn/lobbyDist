@@ -1,11 +1,5 @@
 
 <div class="main">
   <app-navbar class="main-component"></app-navbar>
-  <router-outlet>
-
-  </router-outlet>
-  <app-issue-detail-view class="main-component"
-    *ngIf="selectedIssue"
-    [issue]="selectedIssue"
-  ></app-issue-detail-view>
+  <router-outlet></router-outlet>
 </div>

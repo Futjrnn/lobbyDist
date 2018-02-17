@@ -6,10 +6,24 @@ import { ISSUES } from './mock-issues';
 
 @Injectable()
 export class IssueServiceService {
-
+  currentIssue: Issue;
   issues = ISSUES
 
   constructor() { }
+
+  // viewIssue
+    viewIssue(issue: Issue): any {
+      // this.observableIssue = new Observable( observer => {
+      //   observer.next(issue);
+      //   observer.complete();
+      // });
+
+      this.currentIssue = issue;
+
+      // this.issue = _issue;
+      // public readonly issueObservable: Observable<Issue> = this.issue.asObservable()
+      // return issue.asObservable()
+    }
 
   // getIssues
     getIssues(): Issue[] {
