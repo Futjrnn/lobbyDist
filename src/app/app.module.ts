@@ -11,6 +11,7 @@ import { IssuesListComponent } from './issues-list/issues-list.component';
 import { IssueCardComponent } from './issue-card/issue-card.component';
 import { NewIssueComponent } from './new-issue/new-issue.component';
 import { IssueDetailViewComponent } from './issue-detail-view/issue-detail-view.component';
+import { AppRoutingModule } from './/app-routing.module';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { IssueDetailViewComponent } from './issue-detail-view/issue-detail-view.
   imports: [
     BrowserModule,
     NgSemanticModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [IssueServiceService],
   bootstrap: [AppComponent]
