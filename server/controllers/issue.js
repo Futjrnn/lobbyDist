@@ -1,3 +1,5 @@
+'use strict';
+
 const ipfsAPI = require('ipfs-api');
 const ipfs = ipfsAPI('localhost', '5001', {protocol: 'http'});
 const uuid = require('uuid/v4');
@@ -5,7 +7,7 @@ const fs = require('fs');
 
 module.exports.set = function(app) {
 
-	app.post('/add-issue', (req, res) => {
+	app.post('/issue/add', (req, res) => {
 		let text = req.body.title + "\n" + req.body.description;
 
 		let title = req.body.title.replace(/\s+/g, '-').toLowerCase();
