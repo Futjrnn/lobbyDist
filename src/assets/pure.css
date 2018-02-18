@@ -49,16 +49,12 @@ p {
  */
 
 .banner {
-    
-    background: #4d25bc; /* Old browsers */
-    background: -moz-linear-gradient(top, #4d25bc 0%, #20004f 98%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(top, #4d25bc 0%,#20004f 98%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom, #4d25bc 0%,#20004f 98%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4d25bc', endColorstr='#20004f',GradientType=0 ); /* IE6-9 */
-
+     
+    background: transparent url('http://www.orakonews.com/wp-content/uploads/2017/02/capitol-hill-4.jpg') 0 0 no-repeat fixed;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://24.media.tumblr.com/ccb268832580ac12951828a1c179de69/tumblr_mo2xbk8JUK1st5lhmo1_1280.jpg', sizingMethod='scale');
+        
     text-align: center;
     background-size: cover;
-
     height: 200px;
     width: 100%;
     margin-bottom: 3em;
@@ -74,8 +70,6 @@ p {
         font-weight: 500;
         text-shadow: 0 1px 1px black;
     }
-
-
 
 /*
  * -- PRICING TABLE WRAPPER --
