@@ -59,7 +59,7 @@ module.exports.set = function(app) {
 					issues.push(issueToJSON(file.toString('utf-8')));
 				});
 
-				res.send({"issues": issues});
+				res.send(issues);
 			});
 		});
 	});

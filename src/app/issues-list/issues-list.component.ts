@@ -9,12 +9,12 @@ import { SEMANTIC_COMPONENTS, SEMANTIC_DIRECTIVES } from "ng-semantic";
   styleUrls: ['./issues-list.component.css']
 })
 export class IssuesListComponent implements OnInit {
-  issues: Issue[]
+  issues: Observable<Issue[]>
 
   constructor(public issueService: IssueServiceService) { }
 
   ngOnInit() {
-    this.getIssues();
+    this.issues = this.issueService.getIssues();
   }
 
   getIssues() {

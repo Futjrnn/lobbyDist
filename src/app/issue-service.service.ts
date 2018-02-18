@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { Issue } from "./issue";
 import { ISSUES } from './mock-issues';
 import { HttpClient } from '@angular/common/http';
+import * as _ from 'lodash';
+import { map } from 'rxjs/operators'
 
 
 @Injectable()
@@ -27,9 +29,23 @@ export class IssueServiceService {
     }
 
   // getIssues
-    getIssues(): Issue[] {
-      // return ISSUES;
+    getIssues() {
+      let returnedIssues: Array<Issue> = [];
+      this.http.get("/api/issues").subscribe(res => {
+      
+        _.forEach(res, (issue) => {
+          let newIssue: Issue = {
+            id: 1,
+            title: issue.title,
+            description: issue.description
+          }
+          
+          returnedIssues.push(newIssue);
+        });
+      });
 
+      console.log(returnedIssues);
+      return returnedIssues;
     }
   // createIssue
     createIssue(issue: Issue) {
