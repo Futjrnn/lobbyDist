@@ -18,4 +18,11 @@ then
 > ipfs daemon
 ```
 
+finally
+
+```
+> ipfs pin ls --type recursive | cut -d’ ' -f1 | xargs -n1 ipfs pin rm
+> ipfs repo gc
+```
+
 Navigate to http://localhost:5001/webui
