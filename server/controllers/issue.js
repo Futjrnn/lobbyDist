@@ -7,9 +7,23 @@ const fs = require('fs');
 const Promise = require('bluebird');
 const _ = require('lodash');
 
+let db;
+
 function issueToJSON(issue, fileHash) {
 	let split = issue.split(/\r?\n/);
-	return { title: split[0], description: split[1], hash: fileHash };
+
+	let obj = {};
+	obj.title = split[0];
+	obj.description = split[1];
+	if(split[2]){
+		obj.address = split[2];
+		obj.hasAddress = true;
+	}
+	obj.hash = fileHash;
+
+	return obj;
+}
+
 }
 
 module.exports.set = function(app) {
@@ -64,7 +78,9 @@ module.exports.set = function(app) {
 					i = i + 1;
 				});
 
-				res.send(issues);
+				let filtered = _.filter(issues, { 'hasAddress': true });
+
+				res.send(filtered);
 			});
 		});
 	});

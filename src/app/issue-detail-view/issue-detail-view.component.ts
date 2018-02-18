@@ -18,7 +18,6 @@ export class IssueDetailViewComponent implements OnInit {
   ngOnInit() {
     this.issue = this.issueService.currentIssue;
     this.web3 = window.web3;
-    console.log(this.web3);
   }
 
   supportIssue(issue: Issue) {
@@ -33,6 +32,6 @@ export class IssueDetailViewComponent implements OnInit {
 
   	this.web3.eth.sendTransaction(transactionObject, function(err, transactionHash) {
   		if (!err) console.log(transactionHash); // "0x7f9fade1c0d57a7af66ab4ead7c2eb7b11a91385"
-	});
+	  });
   }
 }

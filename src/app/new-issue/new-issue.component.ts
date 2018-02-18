@@ -17,7 +17,6 @@ export class NewIssueComponent implements OnInit {
   }
 
   createIssue(issue: Issue): void {
-    console.log(issue);
     this.issueService.createIssue(issue);
   }
 
