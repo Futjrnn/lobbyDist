@@ -1,0 +1,565 @@
+{
+  "contractName": "LobbyDist",
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "createIssue",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address[]"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getIssues",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address[]"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x6060604052341561000f57600080fd5b6103688061001e6000396000f30060606040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680634434f97314610051578063907d57aa146100bb575b600080fd5b341561005c57600080fd5b610064610125565b6040518080602001828103825283818151815260200191508051906020019060200280838360005b838110156100a757808201518184015260208101905061008c565b505050509050019250505060405180910390f35b34156100c657600080fd5b6100ce6101b9565b6040518080602001828103825283818151815260200191508051906020019060200280838360005b838110156101115780820151818401526020810190506100f6565b505050509050019250505060405180910390f35b61012d6102d7565b60018054806020026020016040519081016040528092919081815260200182805480156101af57602002820191906000526020600020905b8160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019060010190808311610165575b5050505050905090565b6101c16102d7565b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff169050600180548060010182816101fb91906102eb565b9160005260206000209001600083909190916101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505060018054806020026020016040519081016040528092919081815260200182805480156102cc57602002820191906000526020600020905b8160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019060010190808311610282575b505050505091505090565b602060405190810160405280600081525090565b815481835581811511610312578183600052602060002091820191016103119190610317565b5b505050565b61033991905b8082111561033557600081600090555060010161031d565b5090565b905600a165627a7a72305820eb7dac8a704f1ee885deb85f7a5bf6828c697f934bf730e1a3c03bd458c2159f0029",
+  "deployedBytecode": "0x60606040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680634434f97314610051578063907d57aa146100bb575b600080fd5b341561005c57600080fd5b610064610125565b6040518080602001828103825283818151815260200191508051906020019060200280838360005b838110156100a757808201518184015260208101905061008c565b505050509050019250505060405180910390f35b34156100c657600080fd5b6100ce6101b9565b6040518080602001828103825283818151815260200191508051906020019060200280838360005b838110156101115780820151818401526020810190506100f6565b505050509050019250505060405180910390f35b61012d6102d7565b60018054806020026020016040519081016040528092919081815260200182805480156101af57602002820191906000526020600020905b8160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019060010190808311610165575b5050505050905090565b6101c16102d7565b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff169050600180548060010182816101fb91906102eb565b9160005260206000209001600083909190916101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505060018054806020026020016040519081016040528092919081815260200182805480156102cc57602002820191906000526020600020905b8160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019060010190808311610282575b505050505091505090565b602060405190810160405280600081525090565b815481835581811511610312578183600052602060002091820191016103119190610317565b5b505050565b61033991905b8082111561033557600081600090555060010161031d565b5090565b905600a165627a7a72305820eb7dac8a704f1ee885deb85f7a5bf6828c697f934bf730e1a3c03bd458c2159f0029",
+  "sourceMap": "57:301:2:-;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "57:301:2:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;274:82;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:2;8:100;;;99:1;94:3;90;84:5;80:1;75:3;71;64:6;52:2;49:1;45:3;40:15;;8:100;;;12:14;3:109;;;;;;;;;;;;;;;;;124:144:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:2;8:100;;;99:1;94:3;90;84:5;80:1;75:3;71;64:6;52:2;49:1;45:3;40:15;;8:100;;;12:14;3:109;;;;;;;;;;;;;;;;;274:82:2;315:9;;:::i;:::-;343:6;336:13;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;274:82;:::o;124:144::-;162:9;;:::i;:::-;183:11;203:5;;;;;;;;;;;183:26;;219:6;:18;;;;;;;;;;;:::i;:::-;;;;;;;;;;231:5;219:18;;;;;;;;;;;;;;;;;;;;;;;255:6;248:13;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;124:144;;:::o;57:301::-;;;;;;;;;;;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o",
+  "source": "pragma solidity ^0.4.17;\nimport \"./issue_contract.sol\";\n\ncontract LobbyDist {\n    address owner;\n    address[] issues;\n\n    function createIssue() public returns(address[]) {\n        Issue issue = Issue(owner);\n        issues.push(issue);\n\n        return issues;\n    }\n\n    function getIssues() public view returns(address[]) {\n        return issues;\n    }\n}",
+  "sourcePath": "/Users/siromivel/code/eth_denver/hack/lobbydist/contracts/lobbydist_master.sol",
+  "ast": {
+    "attributes": {
+      "absolutePath": "/Users/siromivel/code/eth_denver/hack/lobbydist/contracts/lobbydist_master.sol",
+      "exportedSymbols": {
+        "LobbyDist": [
+          218
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.4",
+            ".17"
+          ]
+        },
+        "id": 181,
+        "name": "PragmaDirective",
+        "src": "0:24:2"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 180,
+          "absolutePath": "/Users/siromivel/code/eth_denver/hack/lobbydist/contracts/issue_contract.sol",
+          "file": "./issue_contract.sol",
+          "scope": 219,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 182,
+        "name": "ImportDirective",
+        "src": "25:30:2"
+      },
+      {
+        "attributes": {
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            218
+          ],
+          "name": "LobbyDist",
+          "scope": 219
+        },
+        "children": [
+          {
+            "attributes": {
+              "constant": false,
+              "name": "owner",
+              "scope": 218,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "address",
+              "value": null,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "address",
+                  "type": "address"
+                },
+                "id": 183,
+                "name": "ElementaryTypeName",
+                "src": "82:7:2"
+              }
+            ],
+            "id": 184,
+            "name": "VariableDeclaration",
+            "src": "82:13:2"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "issues",
+              "scope": 218,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "address[] storage ref",
+              "value": null,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "length": null,
+                  "type": "address[] storage pointer"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "address",
+                      "type": "address"
+                    },
+                    "id": 185,
+                    "name": "ElementaryTypeName",
+                    "src": "101:7:2"
+                  }
+                ],
+                "id": 186,
+                "name": "ArrayTypeName",
+                "src": "101:9:2"
+              }
+            ],
+            "id": 187,
+            "name": "VariableDeclaration",
+            "src": "101:16:2"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "implemented": true,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "createIssue",
+              "payable": false,
+              "scope": 218,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 188,
+                "name": "ParameterList",
+                "src": "144:2:2"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "",
+                      "scope": 208,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address[] memory",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "length": null,
+                          "type": "address[] storage pointer"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "name": "address",
+                              "type": "address"
+                            },
+                            "id": 189,
+                            "name": "ElementaryTypeName",
+                            "src": "162:7:2"
+                          }
+                        ],
+                        "id": 190,
+                        "name": "ArrayTypeName",
+                        "src": "162:9:2"
+                      }
+                    ],
+                    "id": 191,
+                    "name": "VariableDeclaration",
+                    "src": "162:9:2"
+                  }
+                ],
+                "id": 192,
+                "name": "ParameterList",
+                "src": "161:11:2"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "assignments": [
+                        194
+                      ]
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "constant": false,
+                          "name": "issue",
+                          "scope": 208,
+                          "stateVariable": false,
+                          "storageLocation": "default",
+                          "type": "contract Issue",
+                          "value": null,
+                          "visibility": "internal"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "contractScope": null,
+                              "name": "Issue",
+                              "referencedDeclaration": 179,
+                              "type": "contract Issue"
+                            },
+                            "id": 193,
+                            "name": "UserDefinedTypeName",
+                            "src": "183:5:2"
+                          }
+                        ],
+                        "id": 194,
+                        "name": "VariableDeclaration",
+                        "src": "183:11:2"
+                      },
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "contract Issue",
+                          "type_conversion": true
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_address",
+                                  "typeString": "address"
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 179,
+                              "type": "type(contract Issue)",
+                              "value": "Issue"
+                            },
+                            "id": 195,
+                            "name": "Identifier",
+                            "src": "197:5:2"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 184,
+                              "type": "address",
+                              "value": "owner"
+                            },
+                            "id": 196,
+                            "name": "Identifier",
+                            "src": "203:5:2"
+                          }
+                        ],
+                        "id": 197,
+                        "name": "FunctionCall",
+                        "src": "197:12:2"
+                      }
+                    ],
+                    "id": 198,
+                    "name": "VariableDeclarationStatement",
+                    "src": "183:26:2"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "uint256",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_contract$_Issue_$179",
+                                  "typeString": "contract Issue"
+                                }
+                              ],
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "push",
+                              "referencedDeclaration": null,
+                              "type": "function (address) returns (uint256)"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 187,
+                                  "type": "address[] storage ref",
+                                  "value": "issues"
+                                },
+                                "id": 199,
+                                "name": "Identifier",
+                                "src": "219:6:2"
+                              }
+                            ],
+                            "id": 201,
+                            "name": "MemberAccess",
+                            "src": "219:11:2"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 194,
+                              "type": "contract Issue",
+                              "value": "issue"
+                            },
+                            "id": 202,
+                            "name": "Identifier",
+                            "src": "231:5:2"
+                          }
+                        ],
+                        "id": 203,
+                        "name": "FunctionCall",
+                        "src": "219:18:2"
+                      }
+                    ],
+                    "id": 204,
+                    "name": "ExpressionStatement",
+                    "src": "219:18:2"
+                  },
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 192
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "overloadedDeclarations": [
+                            null
+                          ],
+                          "referencedDeclaration": 187,
+                          "type": "address[] storage ref",
+                          "value": "issues"
+                        },
+                        "id": 205,
+                        "name": "Identifier",
+                        "src": "255:6:2"
+                      }
+                    ],
+                    "id": 206,
+                    "name": "Return",
+                    "src": "248:13:2"
+                  }
+                ],
+                "id": 207,
+                "name": "Block",
+                "src": "173:95:2"
+              }
+            ],
+            "id": 208,
+            "name": "FunctionDefinition",
+            "src": "124:144:2"
+          },
+          {
+            "attributes": {
+              "constant": true,
+              "implemented": true,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "getIssues",
+              "payable": false,
+              "scope": 218,
+              "stateMutability": "view",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 209,
+                "name": "ParameterList",
+                "src": "292:2:2"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "",
+                      "scope": 217,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address[] memory",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "length": null,
+                          "type": "address[] storage pointer"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "name": "address",
+                              "type": "address"
+                            },
+                            "id": 210,
+                            "name": "ElementaryTypeName",
+                            "src": "315:7:2"
+                          }
+                        ],
+                        "id": 211,
+                        "name": "ArrayTypeName",
+                        "src": "315:9:2"
+                      }
+                    ],
+                    "id": 212,
+                    "name": "VariableDeclaration",
+                    "src": "315:9:2"
+                  }
+                ],
+                "id": 213,
+                "name": "ParameterList",
+                "src": "314:11:2"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 213
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "overloadedDeclarations": [
+                            null
+                          ],
+                          "referencedDeclaration": 187,
+                          "type": "address[] storage ref",
+                          "value": "issues"
+                        },
+                        "id": 214,
+                        "name": "Identifier",
+                        "src": "343:6:2"
+                      }
+                    ],
+                    "id": 215,
+                    "name": "Return",
+                    "src": "336:13:2"
+                  }
+                ],
+                "id": 216,
+                "name": "Block",
+                "src": "326:30:2"
+              }
+            ],
+            "id": 217,
+            "name": "FunctionDefinition",
+            "src": "274:82:2"
+          }
+        ],
+        "id": 218,
+        "name": "ContractDefinition",
+        "src": "57:301:2"
+      }
+    ],
+    "id": 219,
+    "name": "SourceUnit",
+    "src": "0:358:2"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.19+commit.c4cbbb05.Emscripten.clang"
+  },
+  "networks": {
+    "1518910352648": {
+      "events": {},
+      "links": {},
+      "address": "0xc59baf44b509f36aeae86faf633d9e20a0a8b096"
+    }
+  },
+  "schemaVersion": "1.0.1",
+  "updatedAt": "2018-02-18T05:59:30.582Z"
+}
