@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Issue } from "./issue";
 import { ISSUES } from './mock-issues';
+import { HttpClient } from '@angular/common/http';
 
 
 @Injectable()
@@ -9,7 +10,7 @@ export class IssueServiceService {
   currentIssue: Issue;
   issues = ISSUES
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   // viewIssue
     viewIssue(issue: Issue): any {
@@ -27,7 +28,8 @@ export class IssueServiceService {
 
   // getIssues
     getIssues(): Issue[] {
-      return ISSUES;
+      // return ISSUES;
+
     }
   // createIssue
     createIssue(issue: Issue) {
