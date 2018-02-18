@@ -1,12 +1,32 @@
-<h2>Create new issue</h2>
-<div>
-  <form (ngSubmit)="createIssue()">
-    <label>Title:
-      <input [(ngModel)]="issue.title" placeholder="Add new title...">
-    </label>
-    <label>
-      <textarea [(ngModel)]="issue.description" placeholder="Describe your issue..."></textarea>
-    </label>
-    <input type="submit" value="Draft Issue" >
-  </form>
+<div id="layout">
+	<div id="main">
+		<div class="header">
+			<h1>Create new issue</h1>
+			<h2>Enter the information for your issue here.</h2>
+		</div>
+
+		<div class="content" style="padding-top: 20px;">
+			<form class="pure-form pure-form-aligned" (ngSubmit)="createIssue()">
+				<fieldset>
+					<div class="pure-control-group">
+						<label for="title">Title</label>
+						<input [(ngModel)]="issue.title" id="title" type="text" placeholder="enter issue title..">
+					</div>
+
+					<div class="pure-control-group">
+						<label for="description">Description</label>
+						<textarea [(ngModel)]="issue.description" id="description" placeholder="enter issue description.." rows="5" cols="50"></textarea>
+					</div>
+
+					<div class="pure-controls">
+						<label for="cb" class="pure-checkbox">
+							<input id="cb" type="checkbox"> I've read the terms and conditions
+						</label>
+
+						<button type="submit" class="pure-button pure-button-primary">Submit</button>
+					</div>
+				</fieldset>
+			</form>
+		</div>
+	</div>
 </div>
