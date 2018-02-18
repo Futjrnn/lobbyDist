@@ -24,7 +24,7 @@ export class IssueServiceService {
       let returnedIssues: Array<Issue> = [];
       this.http.get("/api/issues").subscribe(res => {
       
-        _.forEach(res, (issue) => {
+        _.forEach(res, (issue: Issue) => {
           let newIssue: Issue = {
             id: 1,
             title: issue.title,
