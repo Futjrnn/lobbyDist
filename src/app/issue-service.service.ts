@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Issue } from "./issue";
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 import * as _ from 'lodash';
 
 @Injectable()
 export class IssueServiceService {
   currentIssue: Issue;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   // viewIssue
     viewIssue(issue: Issue): any {
@@ -38,7 +39,7 @@ export class IssueServiceService {
     createIssue(issue: Issue) {
       // send issue to db / blockchain layer
       this.http.post("/api/issues/add", issue).subscribe(res => {
-        console.log(res);
+        this.router.navigate(['/']);
       })
     }
   // supportIssue

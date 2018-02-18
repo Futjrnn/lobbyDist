@@ -19,5 +19,4 @@ export class NewIssueComponent implements OnInit {
   createIssue(issue: Issue): void {
     this.issueService.createIssue(issue);
   }
-
 }
