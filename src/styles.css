@@ -1,1 +1,11 @@
-/* You can add global styles to this file, and also import other style files */
+app-navbar {
+    width: 75%;
+}
+
+app-navbar h1 {
+    float: left;
+}
+
+app-navbar button {
+    float: right;
+}
