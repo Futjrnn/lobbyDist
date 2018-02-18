@@ -8,14 +8,16 @@ import { Issue } from '../issue';
   styleUrls: ['./new-issue.component.css']
 })
 export class NewIssueComponent implements OnInit {
+  issue: Issue;
 
   constructor(public issueService: IssueServiceService) { }
 
   ngOnInit() {
-    
+    this.issue = new Issue();
   }
 
   createIssue(issue: Issue): void {
+    console.log(issue);
     this.issueService.createIssue(issue);
   }
 

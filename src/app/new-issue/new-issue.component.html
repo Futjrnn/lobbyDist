@@ -6,16 +6,16 @@
 		</div>
 
 		<div class="content" style="padding-top: 20px;">
-			<form class="pure-form pure-form-aligned" (ngSubmit)="createIssue()">
+			<form class="pure-form pure-form-aligned" (ngSubmit)="createIssue(issue)">
 				<fieldset>
 					<div class="pure-control-group">
 						<label for="title">Title</label>
-						<input [(ngModel)]="issue.title" id="title" type="text" placeholder="enter issue title..">
+						<input [(ngModel)]="issue.title" id="title" type="text" placeholder="enter issue title.." name="title">
 					</div>
 
 					<div class="pure-control-group">
 						<label for="description">Description</label>
-						<textarea [(ngModel)]="issue.description" id="description" placeholder="enter issue description.." rows="5" cols="50"></textarea>
+						<textarea [(ngModel)]="issue.description" id="description" placeholder="enter issue description.." rows="5" cols="50" name="description"></textarea>
 					</div>
 
 					<div class="pure-controls">

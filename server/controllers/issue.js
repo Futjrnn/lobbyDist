@@ -17,6 +17,7 @@ function issueToJSON(issue) {
 module.exports.set = function(app) {
 
 	app.post('/issues/add', (req, res) => {
+		console.log(req.body);
 		let text = req.body.title + "\n" + req.body.description;
 
 		let title = req.body.title.replace(/\s+/g, '-').toLowerCase();
@@ -38,7 +39,7 @@ module.exports.set = function(app) {
 
 			fs.unlink(filePath);
 
-			res.send(ipfsResponse[0].hash);
+			res.send({"hash": ipfsResponse[0].hash});
 		});
 	});
 

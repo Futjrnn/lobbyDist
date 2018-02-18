@@ -16,16 +16,7 @@ export class IssueServiceService {
 
   // viewIssue
     viewIssue(issue: Issue): any {
-      // this.observableIssue = new Observable( observer => {
-      //   observer.next(issue);
-      //   observer.complete();
-      // });
-
       this.currentIssue = issue;
-
-      // this.issue = _issue;
-      // public readonly issueObservable: Observable<Issue> = this.issue.asObservable()
-      // return issue.asObservable()
     }
 
   // getIssues
@@ -49,7 +40,11 @@ export class IssueServiceService {
     }
   // createIssue
     createIssue(issue: Issue) {
+      // const postBody = 
       // send issue to db / blockchain layer
+      this.http.post("/api/issues/add", issue).subscribe(res=> {
+        console.log(res);
+      })
     }
   // supportIssue
     supportIssue(issue: Issue, supportWallet: string, amount: number): boolean {

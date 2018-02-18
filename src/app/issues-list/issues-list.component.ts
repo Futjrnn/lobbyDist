@@ -9,7 +9,7 @@ import { SEMANTIC_COMPONENTS, SEMANTIC_DIRECTIVES } from "ng-semantic";
   styleUrls: ['./issues-list.component.css']
 })
 export class IssuesListComponent implements OnInit {
-  issues: Observable<Issue[]>
+  issues: Issue[]
 
   constructor(public issueService: IssueServiceService) { }
 
@@ -17,7 +17,7 @@ export class IssuesListComponent implements OnInit {
     this.issues = this.issueService.getIssues();
   }
 
-  getIssues() {
-    this.issues = this.issueService.getIssues();
+  onSelect(issue) {
+    this.issueService.viewIssue(issue);
   }
 }
