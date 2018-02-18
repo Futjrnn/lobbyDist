@@ -1,0 +1,15 @@
+We began building a decentralized lobbying application to empower people to fund lobbying efforts anonymously
+and avoid prosecution. The idea is to level the playing field between large corporate interests and regular citizens.
+
+During the hackathon we managed to get a basic web application built in Node/Angular5 and wrote up a few smart contracts
+to handle creating a new "Issue" contract(the issue is a specific lobbying effort,) and a "Vote" contract.
+
+The Vote contract is still unfinished but our plan for future development is to issue a single ERC721 token
+to every address that puts ETH up in support of an issue. These tokens are then burned in order to vote on validating
+materials submitted by a lobbyist to prove that they lobbied for the effort. Documents related to lobbying are stored
+in IPFS and the hashes are revealed at voting time. 2 weeks after the lobbying verification documents are
+submitted the vote closes, if a quorum of 60% is achieved & more than 50% of the votes affirm the lobbyist's
+claims the lobbyist is paid the Ether stored in the Issue contract. If an issue is open for over 6 months
+and no lobbyist submits validation materials, the issue closes and all ETH in the contract is returned to the original
+senders 30 days after the contract closes. If validation materials are rejected, the issue closes and
+the ether is returned after 60 days.
