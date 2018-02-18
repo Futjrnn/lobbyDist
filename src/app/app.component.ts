@@ -23,5 +23,6 @@ export class AppComponent {
 
   initWeb3 = () => {
     this.web3 = new Web3(window.web3.currentProvider || "ws://localhost:8546");
+    this.web3.eth.defaultAccount = this.web3.eth.accounts[0];
   }
 }
