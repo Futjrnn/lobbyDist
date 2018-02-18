@@ -40,8 +40,6 @@ p {
 .pure-menu-link {
     padding: .5em .7em;
 }
-
-
 /*
  * -- BANNER --
  * The top banner with the headings. By using a combination
@@ -212,9 +210,6 @@ p {
 
     .banner-head {
         font-size: 4em;
-    }
-    .pricing-table {
-        margin-bottom: 0;
     }
 
 }

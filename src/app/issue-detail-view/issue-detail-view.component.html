@@ -1,33 +1,16 @@
 <div id="layout">
-
 	<div id="main">
 		<div class="header">
 			<h1>{{issue.title}}</h1>
 		</div>
-
 		<div class="content">
-			<h2 class="content-subhead">Summary</h2>
+			<h3 class="content-subhead">Issue Description</h3>
+			<p> {{issue.description}} </p>
+			<h3 class="content-subhead">Before you support..</h3>
 			<p>
-				{{issue.description}}
+				When you support this issue, a dialog will open which will allow you to send Ether to the address specified.
 			</p>
-
-			<div class="pure-g">
-				<div class="pure-u-1-4">
-					<img class="pure-img-responsive" src="http://farm3.staticflickr.com/2875/9069037713_1752f5daeb.jpg" alt="Peyto Lake">
-				</div>
-				<div class="pure-u-1-4">
-					<img class="pure-img-responsive" src="http://farm3.staticflickr.com/2813/9069585985_80da8db54f.jpg" alt="Train">
-				</div>
-				<div class="pure-u-1-4">
-					<img class="pure-img-responsive" src="http://farm6.staticflickr.com/5456/9121446012_c1640e42d0.jpg" alt="T-Shirt Store">
-				</div>
-				<div class="pure-u-1-4">
-					<img class="pure-img-responsive" src="http://farm8.staticflickr.com/7357/9086701425_fda3024927.jpg" alt="Mountain">
-				</div>
-			</div>
-
 			<button class="pure-button pure-button-primary" (click)="supportIssue(issue)">Support Issue</button>
 		</div>
 	</div>
-
 </div>

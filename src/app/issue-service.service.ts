@@ -28,7 +28,8 @@ export class IssueServiceService {
           let newIssue: Issue = {
             id: 1,
             title: issue.title,
-            description: issue.description
+            description: issue.description,
+            hash: issue.hash
           }
           
           returnedIssues.push(newIssue);
@@ -39,9 +40,8 @@ export class IssueServiceService {
     }
   // createIssue
     createIssue(issue: Issue) {
-      // const postBody = 
       // send issue to db / blockchain layer
-      this.http.post("/api/issues/add", issue).subscribe(res=> {
+      this.http.post("/api/issues/add", issue).subscribe(res => {
         console.log(res);
       })
     }

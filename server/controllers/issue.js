@@ -7,11 +7,9 @@ const fs = require('fs');
 const Promise = require('bluebird');
 const _ = require('lodash');
 
-const rootHash = 'QmPhnvn747LqwPYMJmQVorMaGbMSgA7mRRoyyZYz3DoZRQ';
-
-function issueToJSON(issue) {
+function issueToJSON(issue, fileHash) {
 	let split = issue.split(/\r?\n/);
-	return { title: split[0], description: split[1] };
+	return { title: split[0], description: split[1], hash: fileHash };
 }
 
 module.exports.set = function(app) {
@@ -50,14 +48,20 @@ module.exports.set = function(app) {
 				throw err
 			}
 
-			Promise.map(pinset, (p) => {
+			let hashes = [];
+			Promise.mapSeries(pinset, (p) => {
+				hashes.push(p.hash);
 				return ipfs.files.cat(p.hash);
 			})
 			.then((files) => {
+
 				let issues = [];
 
+				let i = 0;
 				_.each(files, (file) => {
-					issues.push(issueToJSON(file.toString('utf-8')));
+					let fileHash = hashes[i];
+					issues.push(issueToJSON(file.toString('utf-8'), fileHash));
+					i = i + 1;
 				});
 
 				res.send(issues);

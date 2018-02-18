@@ -24,7 +24,7 @@ export class IssueDetailViewComponent implements OnInit {
   supportIssue(issue: Issue) {
 
   	//let toAddress = issue.address;
-  	var amount = web3.toWei(0.01, "ether")
+  	var amount = this.web3.toWei(0.01, "ether")
 
   	let transactionObject = {};
   	transactionObject.to = "0x156d7a972B64C8d3e0454277244BfeaAAE15D201";
