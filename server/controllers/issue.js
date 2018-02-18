@@ -24,8 +24,6 @@ function issueToJSON(issue, fileHash) {
 	return obj;
 }
 
-}
-
 module.exports.set = function(app) {
 
 	app.post('/issues/add', (req, res) => {
@@ -78,9 +76,12 @@ module.exports.set = function(app) {
 					i = i + 1;
 				});
 
-				let filtered = _.filter(issues, { 'hasAddress': true });
+				console.log(issues);
 
-				res.send(filtered);
+				// let filtered = _.filter(issues, { 'hasAddress': true });
+
+
+				res.send(issues);
 			});
 		});
 	});

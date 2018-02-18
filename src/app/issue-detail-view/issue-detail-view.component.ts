@@ -25,10 +25,11 @@ export class IssueDetailViewComponent implements OnInit {
   	//let toAddress = issue.address;
   	var amount = this.web3.toWei(0.01, "ether")
 
-  	let transactionObject = {};
-  	transactionObject.to = "0x156d7a972B64C8d3e0454277244BfeaAAE15D201";
-  	transactionObject.value = amount;
-  	transactionObject.gas = 21000;
+  	let transactionObject = {
+      to: "0x156d7a972B64C8d3e0454277244BfeaAAE15D201",
+      value: amount,
+      gas: 21000
+    };
 
   	this.web3.eth.sendTransaction(transactionObject, function(err, transactionHash) {
   		if (!err) console.log(transactionHash); // "0x7f9fade1c0d57a7af66ab4ead7c2eb7b11a91385"

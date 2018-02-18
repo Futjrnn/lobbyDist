@@ -1,16 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Issue } from "./issue";
-import { ISSUES } from './mock-issues';
 import { HttpClient } from '@angular/common/http';
 import * as _ from 'lodash';
-import { map } from 'rxjs/operators'
-
 
 @Injectable()
 export class IssueServiceService {
   currentIssue: Issue;
-  issues = ISSUES
 
   constructor(private http: HttpClient) { }
 
@@ -24,7 +20,7 @@ export class IssueServiceService {
       let returnedIssues: Array<Issue> = [];
       this.http.get("/api/issues").subscribe(res => {
       
-        _.forEach(res, (issue: Issue) => {
+        _.forEach(res, (issue: any) => {
           let newIssue: Issue = {
             id: 1,
             title: issue.title,
