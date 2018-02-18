@@ -35,7 +35,6 @@ export class IssueServiceService {
         });
       });
 
-      console.log(returnedIssues);
       return returnedIssues;
     }
   // createIssue
